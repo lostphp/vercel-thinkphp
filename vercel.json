@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "/api/index.php", "use": "vercel-php@0.5.3" },
+    { "src": "/public/**", "use": "@vercel/static" }
+  ],
+  "rewrites": [
+    { "source": "/static/(css|js)/(.*)", "destination": "public/static/$1/$2" },
+    { "source": "/storage/(.*)", "destination": "/public/storage/$1" },
+    { "source": "/(.*)", "destination": "/api/index.php" }
+  ]
+}
